@@ -28,7 +28,7 @@ class EventListItem extends Component {
                         </Segment>
                         <Segment secondary>
                           <List horizontal>
-                            <EventListAttendee />
+                            <EventListAttendee />    {/*  this is component */}
                             <EventListAttendee />
                             <EventListAttendee />
                           </List>
