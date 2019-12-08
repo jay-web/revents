@@ -118,3 +118,7 @@ body {
 .dropzone--isActive {
   border: dashed 3px green;
 }
+
+.single-segments {
+  margin-bottom: 1rem !important;
+}

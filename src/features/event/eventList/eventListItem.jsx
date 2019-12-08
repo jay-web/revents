@@ -6,15 +6,15 @@ class EventListItem extends Component {
     render(){
         return (
             <div>
-                     <Segment.Group>
+                     <Segment.Group className="single-segments">
                         <Segment>
                           <Item.Group>
                             <Item>
-                              <Item.Image size="tiny" circular src="https://randomuser.me/api/portraits/women/32.jpg" />
+                              <Item.Image size="tiny" circular src={this.props.events.hostPhotoURL} />
                               <Item.Content>
-                                <Item.Header as="a">Event Title</Item.Header>
+                                <Item.Header as="a">{this.props.events.title}</Item.Header>
                                 <Item.Description>
-                                  Hosted by <a>hosted by</a>
+                                  Hosted by <a>{this.props.events.hostedBy}</a>
                                 </Item.Description>
                               </Item.Content>
                             </Item>
@@ -22,18 +22,21 @@ class EventListItem extends Component {
                         </Segment>
                         <Segment>
                           <span>
-                            <Icon name="clock" /> date |
-                            <Icon name="marker" /> time
+                            <Icon name="clock" /> {this.props.events.date} |
+                            <Icon name="marker" /> {this.props.events.venue}
                           </span>
                         </Segment>
                         <Segment secondary>
                           <List horizontal>
-                            <EventListAttendee />    {/*  this is component */}
-                            <EventListAttendee />
-                            <EventListAttendee />
+                            {this.props.events.attendees.map(attendee => (
+                              <EventListAttendee key={attendee.id} attendeeList={attendee}/> 
+                            ))}
+                               {/*  this is component */}
+                            
                           </List>
                         </Segment>
                         <Segment clearing>
+                          {this.props.events.description}
                           <Button as="a" color="teal" floated="right" content="View" />
                         </Segment>
                       </Segment.Group>
