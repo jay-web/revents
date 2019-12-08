@@ -60,6 +60,13 @@ class EventDashboard extends Component {
         event: eventsData,
         isOpen: false
     }
+
+    handleFormToggle = () => {
+      this.setState((prevState) => ({
+          isOpen : !prevState.isOpen
+      }))
+      
+    }
     render(){
         const {event, isOpen } = this.state;
 
@@ -69,8 +76,8 @@ class EventDashboard extends Component {
                     <EventList events={event}/>     {/* coming from line 64 */}
                 </Grid.Column>
                 <Grid.Column width={6}>
-                    <Button color="teal" content="Create Event"/>
-                    {isOpen && <EventForm /> }  {/* will display as per isopen property */}
+                    <Button onClick={this.handleFormToggle} color="teal" content="Create Event"/>
+                    {isOpen && <EventForm cancelForm={this.handleFormToggle} /> }  {/* will display as per isopen property */}
                     
                 </Grid.Column>
             </Grid>
