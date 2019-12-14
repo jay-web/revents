@@ -14,6 +14,7 @@ class EventForm extends Component {
   handleOnSubmit = (evt) => {
     evt.preventDefault();
     console.log(this.state);
+    this.props.createNewEvent(this.state);
   }
 
   handleInputChanges = event => {
@@ -71,7 +72,10 @@ class EventForm extends Component {
                         value={hostedBy}
                         placeholder="Enter the name of person hosting" />
                       </Form.Field>
-                      <Button  positive type="submit">
+                      <Button  
+                      positive 
+                      
+                      type="submit">
                         Submit
                       </Button>
                       <Button onClick={cancelForm} type="button">Cancel</Button>

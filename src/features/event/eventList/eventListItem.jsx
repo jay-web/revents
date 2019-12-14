@@ -28,7 +28,7 @@ class EventListItem extends Component {
                         </Segment>
                         <Segment secondary>
                           <List horizontal>
-                            {this.props.events.attendees.map(attendee => (
+                            {this.props.events.attendees && this.props.events.attendees.map(attendee => (
                               <EventListAttendee key={attendee.id} attendeeList={attendee}/> 
                             ))}
                                {/*  this is component */}
